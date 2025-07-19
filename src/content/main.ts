@@ -16,7 +16,10 @@ function mountApp() {
 
 mountApp() */
 
+import { copyEvent } from '@/content/events'
+
 document.body.addEventListener('click', () => {
-  const crearEvento = document.querySelector('button#aceptar')
-  console.log(crearEvento)
+  if (window.location.pathname.includes('seguimiento')) {
+    copyEvent()
+  }
 })
