@@ -1,11 +1,10 @@
-import { mount } from 'svelte'
+/*import { mount } from 'svelte'
 import App from './views/App.svelte'
 
 console.log('[CRXJS] Hello world from content script!')
 
-/**
- * Mount the Svelte app to the DOM.
- */
+// Mount the Svelte app to the DOM.
+ 
 function mountApp() {
   const container = document.createElement('div')
   container.id = 'crxjs-app'
@@ -15,4 +14,9 @@ function mountApp() {
   })
 }
 
-mountApp()
+mountApp() */
+
+document.body.addEventListener('click', () => {
+  const crearEvento = document.querySelector('button#aceptar')
+  console.log(crearEvento)
+})

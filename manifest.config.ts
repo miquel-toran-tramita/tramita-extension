@@ -14,8 +14,10 @@ export default defineManifest({
     },
     default_popup: 'src/popup/index.html',
   },
-  content_scripts: [{
-    js: ['src/content/main.ts'],
-    matches: ['https://*/*'],
-  }],
+  content_scripts: [
+    {
+      js: ['src/content/main.ts'],
+      matches: ['https://crm.inmovilla.com/*'],
+    },
+  ],
 })
