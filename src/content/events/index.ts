@@ -1,5 +1,4 @@
-export const copyEvent = () => {
-  const crearEvento = document.querySelector('button#aceptar')
+export const copyEvent = async (ev: MouseEvent) => {
   const HTMLInputId = document.getElementById('seguimiento.codseg') as HTMLInputElement
   const HTMLInputTitle = document.getElementById('seguimiento.asunto') as HTMLInputElement
   const HTMLIframeDesc = document.querySelector('iframe.cke_wysiwyg_frame')?.contentWindow.document as any
@@ -8,7 +7,7 @@ export const copyEvent = () => {
   const HTMLAgent = document.getElementById('js_seguimiento_keyagente') as HTMLInputElement
   const HTMLAgentCreator = document.getElementById('seguimiento_altaagente_nombre') as HTMLInputElement
 
-  let event = {
+  const payload = {
     id: HTMLInputId.value,
     title: HTMLInputTitle.value,
     description: HTMLIframeDesc?.querySelector('.cke_editable')?.innerHTML,
@@ -18,5 +17,10 @@ export const copyEvent = () => {
     agentCreator: HTMLAgentCreator.innerHTML,
   }
 
-  console.log(event)
+  if (ev?.target?.id === 'aceptar') {
+    chrome.runtime.sendMessage({
+      type: 'enviar_evento',
+      payload,
+    })
+  }
 }

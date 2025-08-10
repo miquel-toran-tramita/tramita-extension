@@ -20,4 +20,8 @@ export default defineManifest({
       matches: ['https://crm.inmovilla.com/*'],
     },
   ],
+  background: {
+    service_worker: 'src/background.ts',
+    type: 'module',
+  },
 })

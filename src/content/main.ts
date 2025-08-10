@@ -17,9 +17,13 @@ function mountApp() {
 mountApp() */
 
 import { copyEvent } from '@/content/events'
+import { addParteVisitaButton } from '@/content/generic/parteVisita'
 
-document.body.addEventListener('click', () => {
+document.body.addEventListener('click', (ev: MouseEvent) => {
   if (window.location.pathname.includes('seguimiento')) {
-    copyEvent()
+    console.log('ETRAAAAAAAAAAAAAA')
+
+    addParteVisitaButton(ev)
+    copyEvent(ev)
   }
 })
